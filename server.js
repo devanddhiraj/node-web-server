@@ -2,6 +2,7 @@ const express = require("express");
 const chalk = require("chalk");
 const hbs = require("hbs");
 var app = express();
+const port = process.env.PORT || 3100;
 hbs.registerPartials(__dirname + "/views/partials");
 app.set("view engine", "hbs");
 hbs.registerHelper('currentYear', () => {
@@ -22,6 +23,6 @@ app.get("/about", (req,res) => {
 
 app.use(express.static(__dirname + "/public"));
 
-app.listen(3100, () => {
-    console.log(chalk.green("Node js running on port  " +chalk.red.bold("3100")));
+app.listen(port, () => {
+    console.log(chalk.green(`Node js running on port  ${port}`));
 });
