@@ -20,7 +20,11 @@ app.get("/about", (req,res) => {
         pageTitle : "About Page"
     });
 });
-
+app.get("/project", (req,res) => {
+    res.render("project.hbs",{
+        pageTitle : "Project Page"
+    });
+});
 app.use(express.static(__dirname + "/public"));
 
 app.listen(port, () => {
